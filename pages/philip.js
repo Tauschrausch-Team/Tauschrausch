@@ -18,6 +18,7 @@ module.exports = async function(pkt,abinote) {
 	var html = new Template('./html/philip.html',{
 		// Hier können Daten an das HTML-Dokument übergeben werden.
 		punkte: pkt
+		abinote: abinote
 	});
 	return await html.parse();
 }
