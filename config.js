@@ -6,10 +6,10 @@ const util = require('util');
 
 var pool = mysql.createPool({
 	connectionLimit : 10,
-  host: 'localhost',
-  user: 'tschrsch',
+  host: 'localhost', // ip-Adress of the server
+  user: 'root',
   password: 'eWDPQFwAgpLkykgn',
-  database: 'tauschrausch'
+  database: 'tauschrausch' // name of the database
 });
 
 exports.pool = pool;

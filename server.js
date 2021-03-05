@@ -1,8 +1,15 @@
-console.log('\x1b[32mStarte Server auf http://localhost:9876\x1b[0m');
+// THIS BRANCH IS A EXPERIMENTAL VERSION OF THE MAIN PROJECT
 
 const http = require('http');
 const querystring = require('querystring');
 const fs = require('fs');
+
+const port = process.env.PORT || 8000; // ! change port, when Error occurred (process.env.PORT -> choose enviromental standart port)
+
+// put local IP-Adress for server out
+const dns = require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+    console.log('Access server at: ' + add + ':' + port + '/' );
+});
 
 http.createServer(async function (req, res) {
 
@@ -21,7 +28,7 @@ http.createServer(async function (req, res) {
 	var cookies = {};
 	if (typeof(req.headers.cookie)!='undefined') {
 		var rawCookies = req.headers.cookie.split('; ');
-		for (cookie of rawCookies) {
+		for (var cookie of rawCookies) {
 			var cookieData = cookie.split('=');
 			cookies[cookieData[0]] = cookieData[1];
 		}
@@ -51,7 +58,7 @@ http.createServer(async function (req, res) {
 				// dem Ordner "/script" beantwortet
 				if (method=='GET' && fs.existsSync('./'+path.join('/'))) {
 					httpHeaders['Content-Type'] = 'application/javascript';
-					httpContent = fs.readFileSync('.'+path.join('/'));
+					httpContent = fs.readFileSync('./'+path.join('/'));
 				}
 				else { httpStatus = 404; }
 				break;
@@ -60,7 +67,7 @@ http.createServer(async function (req, res) {
 				// dem Ordner "/css" beantwortet
 				if (method=='GET' && fs.existsSync('./'+path.join('/'))) {
 					httpHeaders['Content-Type'] = 'text/css';
-					httpContent = fs.readFileSync('.'+path.join('/'));
+					httpContent = fs.readFileSync('./'+path.join('/'));
 				}
 				else { httpStatus = 404; }
 				break;
@@ -104,4 +111,4 @@ http.createServer(async function (req, res) {
 	  res.end();
 	});
 
-}).listen(9876);
+}).listen(port);

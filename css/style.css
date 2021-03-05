@@ -1,0 +1,73 @@
+body {
+    background-image: url("images/Website-Background-Images.jpg");
+    background-color: lightgreen;
+}
+
+h1, h2 {
+    text-align: center;
+    color: darkorange
+}
+
+h3, h4, h5 {
+    text-align: left;
+    color: darkorange;
+}
+
+h3 {
+    font-size: 130%
+}
+
+h4 {
+    font-size: 120%
+}
+
+h5 {
+    font-size: 110%
+}
+
+a, p, ul {
+    text-align: left;
+    color: salmon;
+    font-size: 110%
+}
+
+input[type=text] {
+    width: 10%;
+    padding: 4px 10px;
+    margin: 8px 0;
+    border: 2px solid lightsalmon;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+input[type=text]:focus {
+    background-color: lightsalmon;
+}
+input[type=button], input[type=submit] {
+    width: 10%;
+    padding: 4px 10px;
+    margin: 12px 0;
+    border: 2px solid salmon;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+table, td, th {
+    border: 1px solid rgba(255, 191, 54, 0.397);
+}
+
+table {
+    width: 25%;
+    border-collapse: collapse;
+}
+td, th {
+    height: 25px;
+    padding: 15px;
+    text-align: left;
+}
+th {
+    background-color: #ff4f1934;
+    color: rgb(252, 121, 33);
+}
+tr:hover {background-color: #ff8c203d;}
+tr:nth-child(even) {background-color: #000000;}
+
