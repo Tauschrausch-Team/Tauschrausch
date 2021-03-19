@@ -1,4 +1,4 @@
-const Template = require('./template.js');
+const Template = require('./template.js'); 
 
 module.exports = async function(method,path,query,cookies) {
 
@@ -6,7 +6,7 @@ module.exports = async function(method,path,query,cookies) {
 	var status = 200;
 
 	// In diesem Programmteil werden die Pfade ausgelesen und mit Unterprogrammen
-	// verknüpft. Die Unterprogramme liefern jeweils HTML-Quelltext zurück.
+	// verknüpft. Die Unterprogramme liefern jeweils HTML-Quelltext zurück. Test Kommentar
 	var build;
 	switch (path.shift()) {
 		case '':
